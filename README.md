@@ -1,25 +1,22 @@
 # Nome do projeto
 
-`CURSO: Coloque o nome do curso aqui, sem abreviações`
+`CURSO: Sistema de Infromações`
 
 `DISCIPLINA: Trabalho Interdisciplinar Aplicações Web`
 
-`Xº semestre/ANO`
+`Xº Segundo semestre/2025`
 
-Escreva um ou dois parágrafos resumindo o objetivo do seu projeto.
+O HelpStress é um site voltado para ajudar pessoas que sofrem com ansiedade. Seu principal objetivo é oferecer um espaço acolhedor e informativo, com recursos como artigos médicos, comunidade de apoio, tópicos de discussão e espaços de conversação, promovendo o bem-estar mental, o compartilhamento de experiências e o acesso a informações confiáveis sobre saúde emocional.
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
-* Nome completo do aluno 5
-* Nome completo do aluno 6
+Thiago Grandim das Merces
+Isaac Santos Dutra
+Pedro Nunes Cruz
 
 ## Professor
 
-* Nome completo do(a) professor(a)
+Amália Soares Vieira de Vasconcelos
 
 ## Instruções de utilização
 
