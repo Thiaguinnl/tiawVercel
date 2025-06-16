@@ -10,7 +10,7 @@ Definição de como o software é estruturado em termos dos componentes que faze
 
 Esta seção apresenta as funcionalidades da solução.
 
-##### Funcionalidade 1 - Cadastro de contatos ⚠️ EXEMPLO ⚠️
+##### Funcionalidade 1 - Cadastro de contatos ⚠️ EXEMPLO 
 
 Permite a inclusão, leitura, alteração e exclusão de contatos para o sistema
 
