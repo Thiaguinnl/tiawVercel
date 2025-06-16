@@ -4,6 +4,20 @@
 
 Layout padrão da aplicação que será utilizado em todas as páginas com a definição de identidade visual, aspectos de responsividade e iconografia.
 
+
+[text](06-Template-padrao.md) !
+[text](<../aba da comunidade.png>) !
+[text](<../aba de dicas e tecnicas.png>) !
+[text](../comunidade.png) !
+[text](<../dicas e tecnicas.png>) !
+[text](<../sobre a ansiedade.png>) !
+[text](<../tela de cadastro.png>) !
+[text](<../tela de login.png>) !
+[text](<../tela de perfil.png>) !
+[text](<../tela incial.png>)
+
+
+
 > **Links úteis**:
 >
 > - [CSS website layout (W3Schools)](https://www.w3schools.com/css/css_website_layout.asp)
