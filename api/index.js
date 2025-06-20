@@ -1,11 +1,11 @@
 const jsonServer = require('json-server');
 const path = require('path');
-const fs = require('fs');
 const jwt = require('jsonwebtoken');
 
 const server = jsonServer.create();
-const router = jsonServer.router(path.join(__dirname, 'src/db/db.json'));
-const middlewares = jsonServer.defaults({ static: path.join(__dirname, 'src/public') });
+// Use process.cwd() para caminhos robustos no ambiente Vercel
+const router = jsonServer.router(path.join(process.cwd(), 'db', 'db.json'));
+const middlewares = jsonServer.defaults({ static: path.join(process.cwd(), 'public') });
 const db = router.db;
 
 const SECRET_KEY = 'sua_chave_secreta_aqui';
@@ -109,8 +109,5 @@ server.get('/api/perfil', verifyToken, (req, res) => {
 
 server.use(router);
 
-const PORT = process.env.PORT || 3000;
-server.listen(PORT, () => {
-    console.log(`JSON Server está rodando em http://localhost:${PORT}`);
-    console.log(`Acesse a página de cadastro em http://localhost:${PORT}/cadastro`);
-}); 
+// Exporta o servidor para a Vercel
+module.exports = server; 
