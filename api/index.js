@@ -1,10 +1,16 @@
 const jsonServer = require('json-server');
 const path = require('path');
+const fs = require('fs');
 const jwt = require('jsonwebtoken');
+const originalDbPath = path.join(process.cwd(), 'db', 'db.json');
+const tempDbPath = '/tmp/db.json';
+
+if (!fs.existsSync(tempDbPath)) {
+  fs.copyFileSync(originalDbPath, tempDbPath);
+}
 
 const server = jsonServer.create();
-// Use process.cwd() para caminhos robustos no ambiente Vercel
-const router = jsonServer.router(path.join(process.cwd(), 'db', 'db.json'));
+const router = jsonServer.router(tempDbPath);
 const middlewares = jsonServer.defaults({ static: path.join(process.cwd(), 'public') });
 const db = router.db;
 
@@ -66,8 +72,8 @@ server.post('/register', (req, res) => {
         email, 
         senha, 
         celular,
-        bio: '', // Campo bio vazio por padrão
-        avatar: '/assets/img/user.png' // Avatar padrão
+        bio: '', 
+        avatar: '/assets/img/user.png'
     };
     
     db.get('usuarios').push(newUser).write();
@@ -107,7 +113,25 @@ server.get('/api/perfil', verifyToken, (req, res) => {
     res.json({ mensagem: `Bem-vindo ao seu perfil, ${req.user.nome}!`, usuario: req.user });
 });
 
+server.patch('/usuarios/:id', verifyToken, (req, res) => {
+    if (Number(req.user.id) !== Number(req.params.id)) {
+        return res.status(403).json({ mensagem: 'Acesso negado. Você só pode atualizar seu próprio perfil.' });
+    }
+
+    const userChain = db.get('usuarios').find({ id: Number(req.params.id) });
+
+    if (!userChain.value()) {
+        return res.status(404).json({ mensagem: 'Usuário não encontrado.' });
+    }
+
+    const updatedUser = userChain.assign(req.body).write();
+
+    res.status(200).json({
+        mensagem: 'Perfil atualizado com sucesso.',
+        usuario: updatedUser
+    });
+});
+
 server.use(router);
 
-// Exporta o servidor para a Vercel
 module.exports = server; 
